@@ -1,7 +1,7 @@
 .venv/
 __pycache__/
 .DS_Store
-.data/*
+.data/
 *.pkl
 
 # Byte-compiled / optimized / DLL files
