@@ -1,3 +1,48 @@
 .venv/
 __pycache__/
 .DS_Store
+data/
+*.pkl
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environments
+venv/
+myprojectenv/
+.env/
+.envrc
+*.env
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# VS Code and other IDE settings
+.vscode/
+.idea/
+
+# Streamlit cache and logs
+.streamlit/
+**/.stcache/
+**/.streamlit/cache/
+
+# Data files and models (keep these out of GitHub unless essential)
+*.csv
+*.pkl
+*.joblib
+*.h5
+*.zip
+*.tar.gz
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Git LFS artifacts or backups
+*.bak
+*.tmp
