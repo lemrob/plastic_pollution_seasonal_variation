@@ -1,0 +1,6 @@
+# Ignore virtual environment
+myprojectenv/
+*.pkl
+.DS_Store
+# Ignore Python bytecode files
+__pycache__/
