@@ -10,6 +10,7 @@ from folium.plugins import HeatMap
 from branca.colormap import linear
 from matplotlib import pyplot as plt
 import plotly.express as px
+from PIL import Image
 
 
 # add a tab for extension ideas
@@ -17,12 +18,69 @@ import plotly.express as px
 # ---- 1. Streamlit UI ----
 st.set_page_config(layout="wide")
 tab1, tab2, tab3, tab4 = st.tabs(["Welcome!", "Map", "Pollution Distribution", "Dataframe"])
+
+# TAB 1: Welcome
 with tab1:
     st.title(":ocean: :recycle: The Ocean Cleanup Top Polluting Rivers")
-    st.subheader("Adding Seasonality to The Ocean Cleanup's Top 10 Polluting Rivers in Southeast Asia")
-    st.write("Changes in weather patterns have a huge influence on plastic pollution going from rivers into the ocean.")
-    st.write("This app visualizes the seasonal pollution levels of the top 10 rivers in Southeast Asia, as ranked by The Ocean Cleanup.")
-    st.write("Use the tabs above to explore the map, pollution distribution, and underlying data.")
+    st.subheader("**Aim**: Extending the model, by adding **seasonality** to The Ocean Cleanup's Top 10 Polluting Rivers in Southeast Asia")
+
+    st.write("**Purpose:** To introduce a simple prediction of how rainfall can influence pollution rates from rivers into the Ocean.")
+
+    col1, col2, col3 = st.columns(3)
+    BACKGROUND_paragraph = """The Ocean Cleanup has found that **the top 1000 polluting rivers in the world** are responsible for **80% of the plastic pollution** entering the ocean.
+    \n\n They have built a model to show the these top 1000 polluting rivers and the rate of plastic pollution entering the ocean from each river.
+    While these are annual pollution levels, the reality is that the rate of plastic pollution is highly variable throughout the year.
+    This is due to a number of factors, including rainfall, river flow, and human activity. 
+    This model offers an introduction into understanding how rainfall rates impact the rate of pollution.
+    """ 
+    MY_MODEL_paragraph = """My model extends The Ocean Cleanup's model by adding seasonality to the pollution levels of the top 10 rivers in Southeast Asia.
+    The model is based on the average changing rainfall levels across Southeast Asia throughout the year, which is then used to predict the pollution levels of each river for each month.
+    The seasonality is informed by my own modelling of the data, which is based on the average changing rainfall levels across SE Asia throughout the year.
+    """
+
+    # Function to resize an image
+    def resize_image(image_path, size):
+        img = Image.open(image_path)
+        resized_img = img.resize(size)
+        return resized_img
+
+
+
+    with col1:
+        tile = col1.container(height=350)
+        tile.write(BACKGROUND_paragraph,
+                       text_align="left",
+                       max_lines=10,
+                       max_chars=None,
+                       expanded=False)
+    with col2: 
+        tile = col2.container(height=350)
+        tile.write(MY_MODEL_paragraph,
+                       text_align="left",
+                       max_lines=10,
+                       max_chars=None,
+                       expanded=False)
+    with col3:
+        tile = col3.container(height=350)
+        tile.write(MY_MODEL_paragraph,
+                       text_align="left",
+                       max_lines=10,
+                       max_chars=None,
+                       expanded=False)
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.write(" ")
+    with col2:
+            # Resizing image to fit the layout
+        image_path = "images/plastic_emissions_model.png"  
+        new_size = (90, 60) # Example: 300px width, 200px height
+        resized_image = resize_image(image_path, new_size)
+        OC_model =st.container(height=300)
+        # img = Image.open("")
+        OC_model.image(resized_image, caption="The Ocean Cleanup's Model for calculating River Emission Rates, for each river", use_column_width=True)
+    with col3:
+        st.write(" ")
+    
 with tab2:
     st.title(":earth_asia: Seasonal River Pollution in SE Asia")
     st.subheader("Visualizing the seasonal pollution levels of the top 10 rivers in Southeast Asia, ranked by The Ocean Cleanup. " \
