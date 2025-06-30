@@ -14,6 +14,7 @@
     - Within the streamlit app, you can switch between a map view and a graph-based view of these distributions
 
 ## Outline of Ocean Cleanup's Model
+![Image](https://github.com/user-attachments/assets/d565eeac-a7cb-4b72-b9ba-0b3630aa5ea8)
 
 
 ## Extensions to improve model
