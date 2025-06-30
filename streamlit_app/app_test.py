@@ -35,7 +35,7 @@ with tab2:
     # ---- 2. Load Data  ----
     @st.cache_data
     def load_data():
-        df = pd.read_pickle(r'C:\\Users\\liamr\\OneDrive\\Documents\\Playground\\river_plastic\\data\\monthly_pollution_gdf.pkl')
+        df = pd.read_pickle(r'C:\\Users\\liamr\\OneDrive\\Documents\\Playground\\river_plastic_data\\data\\monthly_pollution_gdf.pkl')
         
 
         # Ensure normalized values exist
