@@ -17,25 +17,30 @@ from PIL import Image
 
 # ---- 1. Streamlit UI ----
 st.set_page_config(layout="wide")
-tab1, tab2, tab3, tab4 = st.tabs(["Welcome!", "Map", "Pollution Distribution", "Dataframe"])
+tab1, tab2, tab3, tab4 = st.tabs([":earth_asia: Welcome!", ":world_map: Map", ":bar_chart: Pollution Distribution", ":mag: Dataframe"])
 
 # TAB 1: Welcome
 with tab1:
-    st.title(":ocean: :recycle: The Ocean Cleanup Top Polluting Rivers")
-    st.subheader("**Aim**: Extending the model, by adding **seasonality** to The Ocean Cleanup's Top 10 Polluting Rivers in Southeast Asia")
+    BACKGROUND_paragraph = """
+    Ocean Cleanup researchers found: **the top 1000 polluting rivers are responsible for 80% of the plastic pollution** entering  the ocean from rivers.
+    \n\n They built a model to better understand the levels of pollution from these rivers.
+    \n\n The **map visualisation** for their predictions can be found here: https://theoceancleanup.com/sources/ 
+    \n\n For each river, their model predicts the **annual** levels of pollution.
+    """
 
-    st.write("**Purpose:** To introduce a simple prediction of how rainfall can influence pollution rates from rivers into the Ocean.")
+    MY_MODEL_paragraph = """
+    This **baseline model** introduces **seasonality** into the paradigm, by considering **rainfall**.
+    \n\n This influences pollution rates as shown in the first part of the model (below) – through **Mobilization**.
+    \n\n Focuses on the top 10 polluters in **South East Asia** – a high polluting area with dramatic seasonal shifts in rainfall.
+    \n\n Aggregates historical rainfall patterns to predict the **average monthly** pollution levels of each river.
+    """
 
-    col1, col2, col3 = st.columns(3)
-    BACKGROUND_paragraph = """The Ocean Cleanup has found that **the top 1000 polluting rivers in the world** are responsible for **80% of the plastic pollution** entering the ocean.
-    \n\n They have built a model to show the these top 1000 polluting rivers and the rate of plastic pollution entering the ocean from each river.
-    While these are annual pollution levels, the reality is that the rate of plastic pollution is highly variable throughout the year.
-    This is due to a number of factors, including rainfall, river flow, and human activity. 
-    This model offers an introduction into understanding how rainfall rates impact the rate of pollution.
-    """ 
-    MY_MODEL_paragraph = """My model extends The Ocean Cleanup's model by adding seasonality to the pollution levels of the top 10 rivers in Southeast Asia.
-    The model is based on the average changing rainfall levels across Southeast Asia throughout the year, which is then used to predict the pollution levels of each river for each month.
-    The seasonality is informed by my own modelling of the data, which is based on the average changing rainfall levels across SE Asia throughout the year.
+    AREAS_FOR_ENHANCEMENT_paragraph = """
+    This is a **baseline** model, which can be extended in various ways:
+    \n\n 1. Collecting data for **each step of the model** shown below for a more accurate prediction of the **probability of plastic emission** per river  starting with **wind data* to complete the **Mobilization** step.
+    \n\n 2. Collecting data for Mismanaged Plastic Waste (MPW) – shown below.
+    \n\n 3. Proximity to Large cities and areas of human activity.
+    \n\n 4. **Time-series predictions**:  can long-term climate and economic data be used to predict trends in river pollution? This could serve particularly useful when considering where to place interceptors.
     """
 
     # Function to resize an image
@@ -44,10 +49,24 @@ with tab1:
         resized_img = img.resize(size)
         return resized_img
 
+    # Function for normal sized column on its own
+    def st_normal():
+        _, col, _ = st.columns([1, 2, 1])
+        return col
+    
+    # User Instructions
+    st.write("*Toggle through the tabs above to explore the model results! Data sources can be found in the final tab, along with the underlying data used for the model.*")
 
+    # Titles and Introduction
+    st.title(":ocean: *Top 10 Plastic Polluting Rivers in South East Asia: A Seasonal Analysis* :recycle:")
+    st.write("**Aim**: To Extend Ocean Cleanup's model, by adding **seasonality** to The Ocean Cleanup's Top Polluting Rivers Model")
+    st.write("**Purpose:** To introduce a simple prediction of how rainfall can influence pollution rates from rivers into the Ocean.")
+
+    col1, col2, col3 = st.columns(3)
 
     with col1:
         tile = col1.container(height=350)
+        tile.write("#### *Ocean Cleanup's Model*")
         tile.write(BACKGROUND_paragraph,
                        text_align="left",
                        max_lines=10,
@@ -55,6 +74,7 @@ with tab1:
                        expanded=False)
     with col2: 
         tile = col2.container(height=350)
+        tile.write("#### *My Seasonal Model*")
         tile.write(MY_MODEL_paragraph,
                        text_align="left",
                        max_lines=10,
@@ -62,27 +82,21 @@ with tab1:
                        expanded=False)
     with col3:
         tile = col3.container(height=350)
-        tile.write(MY_MODEL_paragraph,
+        tile.write("#### *Areas for Enhancement*")
+        tile.write(AREAS_FOR_ENHANCEMENT_paragraph,
                        text_align="left",
                        max_lines=10,
                        max_chars=None,
                        expanded=False)
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        st.write(" ")
-    with col2:
-            # Resizing image to fit the layout
-        image_path = "images/plastic_emissions_model.png"  
-        new_size = (90, 60) # Example: 300px width, 200px height
-        resized_image = resize_image(image_path, new_size)
-        OC_model =st.container(height=300)
-        # img = Image.open("")
-        OC_model.image(resized_image, caption="The Ocean Cleanup's Model for calculating River Emission Rates, for each river", use_column_width=True)
-    with col3:
-        st.write(" ")
+
+    image_path = "images/plastic_emissions_model.png"  
+    new_size = (600, 400) # Example: 300px width, 200px height
+    resized_image = resize_image(image_path, new_size)
+    st_normal().write("#### The Ocean Cleanup's Model for calculating River Emission Rates", align="center")
+    st_normal().image(resized_image, caption = "Source: The Ocean Cleanup's Model, from Meijer et al. (2021). Link here: https://www.science.org/doi/10.1126/sciadv.aaz5803", use_container_width=True)
     
 with tab2:
-    st.title(":earth_asia: Seasonal River Pollution in SE Asia")
+    st.title(":world_map: Seasonal River Pollution in SE Asia")
     st.subheader("Visualizing the seasonal pollution levels of the top 10 rivers in Southeast Asia, ranked by The Ocean Cleanup. " \
     "The seasonality is informed by my own modelling of the data, which is based on the average changing rainfall levels across SE Asia throughout the year.")
     st.write("Use the slider to select a month and toggle between raw and normalized pollution data.")
