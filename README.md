@@ -11,12 +11,12 @@ Focusing on **South East Asia**, the region with many of the world's most pollut
 - Uses historical rainfall data from **WorldClim2** (1990–2019)
 - Applies average monthly rainfall profiles to distribute annual plastic pollution over the year
 - Analyzes the **top 10 plastic-polluting rivers in the region**
-- Visualizes the seasonality using both interactive maps and distribution graphs in a [Streamlit web app](#streamlit-app)
+- Visualizes the seasonality using both interactive maps and distribution graphs in a Streamlit Web App
 
 
 ## 🚀 Try the App
 
-👉 [Launch the Streamlit App](https://your-streamlit-link.streamlit.app)
+👉 [Launch the Streamlit App](https://riverplasticpollution-7btcohpfepcb4yhizbstac.streamlit.app/)
 
 Explore monthly plastic pollution distributions, switch between interactive map and graph views, and interact with the raw data behind the model.
 

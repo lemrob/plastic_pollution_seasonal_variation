@@ -69,7 +69,7 @@ with tab1:
     st.write("*Toggle through the tabs above to explore the model results! Data sources can be found in the final tab, along with the underlying data used for the model.*")
 
     # Titles and Introduction
-    st.title(":ocean: *Top 10 Plastic Polluting Rivers in South East Asia: A Seasonal Analysis* :recycle:")
+    st.title(":ocean: *Top 10 Plastic Polluting Rivers in South East Asia: Seasonality Model* :recycle:")
     st.write("**Aim**: To Extend Ocean Cleanup's model, by adding **seasonality** to The Ocean Cleanup's Top Polluting Rivers Model")
     st.write("**Purpose:** To introduce a simple prediction of how rainfall can influence pollution rates from rivers into the Ocean.")
 
@@ -110,7 +110,6 @@ with tab2:
     @st.cache_data
     def load_data():
         df = pd.read_pickle(get_data_path("monthly_pollution_gdf.pkl"))
-        
         
 
         # Ensure normalized values exist
