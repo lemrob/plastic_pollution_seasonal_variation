@@ -120,6 +120,7 @@ with tab2:
     def load_data():
         df = pd.read_pickle(get_data_path("monthly_pollution_gdf.pkl"))
         
+        
 
         # Ensure normalized values exist
         if 'pollution_norm' not in df.columns:
@@ -129,6 +130,8 @@ with tab2:
         return df
 
     gdf = load_data()
+
+    gdf['geometry'] = gdf['geometry'].astype(str)
 
 
     # ---- 3. Toggle and Slider ----
