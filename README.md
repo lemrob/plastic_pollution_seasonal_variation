@@ -33,9 +33,9 @@ Explore monthly plastic pollution distributions, switch between interactive map 
   - Interactive geospatial and graph-based visualizations
 
 
-## Outline of Ocean Cleanup's Model
-<!-- ![Image](https://github.com/user-attachments/assets/d565eeac-a7cb-4b72-b9ba-0b3630aa5ea8) -->
-![Diagram of Ocean Cleanup's pollution model](images/ocean_cleanup_model.png)
+## The Ocean Cleanup's Model
+Their main dashboard can be found at https://theoceancleanup.com/sources/.
+An outline of their model is shown on the home page of my web app!
 
 
 ## 📝 Extensions to Improve the Model
