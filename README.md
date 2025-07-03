@@ -1,23 +1,44 @@
 # Plastic Pollution Seasonality Model: 
-## Extending the Ocean Cleanup's River Pollution model to consider for seasonal rainfall
+### Extending The Ocean Cleanup’s river pollution model with seasonal rainfall dynamics
 
 
-## Key Details:
+## 🌍 Project Overview
+
+This project builds on [The Ocean Cleanup](https://theoceancleanup.com/)'s model of river-based plastic pollution by introducing **seasonal rainfall as a key factor**. 
+
+Focusing on **South East Asia**, the region with many of the world's most polluting rivers, this model:
+
+- Uses historical rainfall data from **WorldClim2** (1990–2019)
+- Applies average monthly rainfall profiles to distribute annual plastic pollution over the year
+- Analyzes the **top 10 plastic-polluting rivers in the region**
+- Visualizes the seasonality using both interactive maps and distribution graphs in a [Streamlit web app](#streamlit-app)
+
+
+## 🚀 Try the App
+
+👉 [Launch the Streamlit App](https://your-streamlit-link.streamlit.app)
+
+Explore monthly plastic pollution distributions, switch between interactive map and graph views, and interact with the raw data behind the model.
+
+
+
+## 🔬 Model Summary
 - Annual Plastic Pollution is taken from The Ocean Cleanup's model:
 - Rainfall Data is an external factor to the model, taken from WorldClim2
+- Applies rainfall proportions to estimate **monthly plastic emission profiles**
 - Project focus is on **South East Asia** rivers
 - Top 10 polluting rivers from South East Asian are used as the subset for my model
-- **Model**:
-    - Uses historical rainfall data to find an average monthly distribution of these rivers over the years 1990-2019
-    - These averages are used to infer the average distribution of plastic pollution over the course of a year, for each river
-- **Visualisations**:
-    - Within the streamlit app, you can switch between a map view and a graph-based view of these distributions
+- **Outputs**:
+  - Monthly split of plastic pollution per river
+  - Interactive geospatial and graph-based visualizations
+
 
 ## Outline of Ocean Cleanup's Model
-![Image](https://github.com/user-attachments/assets/d565eeac-a7cb-4b72-b9ba-0b3630aa5ea8)
+<!-- ![Image](https://github.com/user-attachments/assets/d565eeac-a7cb-4b72-b9ba-0b3630aa5ea8) -->
+![Diagram of Ocean Cleanup's pollution model](images/ocean_cleanup_model.png)
 
 
-## Extensions to improve model
+## 📝 Extensions to Improve the Model
 
 - **Include more river features** 
     - My project focuses on the initial stage of the Ocean Cleanup's pollution method to calculate the probability of pollution emitted by the river (Mobilisation)
@@ -29,11 +50,11 @@
     - How does rainfall and plastic pollution seasonality interact with wildlife? These may be considerations for The Ocean Cleanup to take
 
 
-## Steps Taken During the Project:
+## 🧪 Steps Taken During the Project
 
 ### Pre-processing:
 
-- Downloading, processing and cleaning data on river pollution, geo-locations, climate rainfall data, and inital vizualisations
+- Downloading, processing and cleaning data on river pollution, geo-locations, climate rainfall data, and inital visualizations
 
 ### Exploratory Data Analysis (EDA)
 
@@ -50,7 +71,7 @@
 - Producing a User-Friendly web app to explore these predictions.
 - User can view the monthly split on a map, similar to the Ocean Cleanup's own dashboard
 - User can dive deeper into the monthly distributions on a distribution chart
-- User can explore and interact the dataframes, of all data sources and the model predictions
+- User can explore and interact with the dataframes, of all data sources and the model predictions
 
 
 

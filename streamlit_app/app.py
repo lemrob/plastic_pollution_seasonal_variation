@@ -1,6 +1,6 @@
 # streamlit_app/app.py
 
-# ---- 0. Imports ----
+# ---- 0. Imports and Paths ----
 import streamlit as st
 from streamlit_super_slider import st_slider
 import pandas as pd
@@ -12,6 +12,17 @@ from matplotlib import pyplot as plt
 import plotly.express as px
 from PIL import Image
 
+
+
+# Getting relative paths for data files
+import os
+import sys
+
+repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+sys.path.append(repo_root)
+
+
+from src.paths import get_data_path
 
 # add a tab for extension ideas
 
@@ -49,7 +60,7 @@ with tab1:
         resized_img = img.resize(size)
         return resized_img
 
-    # Function for normal sized column on its own
+    # Function for normal sized column on its own, within the wide layout I set at the start of the script
     def st_normal():
         _, col, _ = st.columns([1, 2, 1])
         return col
@@ -90,7 +101,7 @@ with tab1:
                        expanded=False)
 
     image_path = "images/plastic_emissions_model.png"  
-    new_size = (600, 400) # Example: 300px width, 200px height
+    new_size = (600, 400) 
     resized_image = resize_image(image_path, new_size)
     st_normal().write("#### The Ocean Cleanup's Model for calculating River Emission Rates", align="center")
     st_normal().image(resized_image, caption = "Source: The Ocean Cleanup's Model, from Meijer et al. (2021). Link here: https://www.science.org/doi/10.1126/sciadv.aaz5803", use_container_width=True)
@@ -107,7 +118,7 @@ with tab2:
     # ---- 2. Load Data  ----
     @st.cache_data
     def load_data():
-        df = pd.read_pickle(r'C:\\Users\\liamr\\OneDrive\\Documents\\Playground\\river_plastic_data\\data\\monthly_pollution_gdf.pkl')
+        df = pd.read_pickle(get_data_path("monthly_pollution_gdf.pkl"))
         
 
         # Ensure normalized values exist
@@ -166,15 +177,10 @@ with tab2:
     geo_df_list = [[point.xy[1][0], point.xy[0][0]] for point in gdf.geometry]
 
 
-    # Setting up the map to centre on Southeast Asia
-    # map_center = [9.4581963681147, 120.76606274396]
-
-
     map_center = [5.285153, 105.76606274396]
 
 
     m = folium.Map(location=map_center, zoom_start=4.5,tiles='CartoDB dark_matter') # Add zoom_start for initial view
-    # tiles='CartoDB positron'
 
     # ---- 6. Plotting the Data ----
     # Looping through to plot a map for each month
