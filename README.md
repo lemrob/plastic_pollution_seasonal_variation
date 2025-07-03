@@ -74,5 +74,25 @@ Explore monthly plastic pollution distributions, switch between interactive map 
 - User can explore and interact with the dataframes, of all data sources and the model predictions
 
 
+## 📦 Requirements
+
+To run the project locally:
+
+1. Create a virtual environment (optional but recommended):
+
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate  # or .venv\Scripts\activate on Windows
+
+2. Install dependencies:
+
+    pip install -r requirements.txt
+
+3. Launch the app:
+
+    streamlit run app/app.py
+
+4. You need to input the data sources to run the code - Please check the data/README_data.md file!
+
 
 

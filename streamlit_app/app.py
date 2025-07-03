@@ -78,32 +78,23 @@ with tab1:
     with col1:
         tile = col1.container(height=350)
         tile.write("#### *Ocean Cleanup's Model*")
-        tile.write(BACKGROUND_paragraph,
-                       text_align="left",
-                       max_lines=10,
-                       max_chars=None,
-                       expanded=False)
+        tile.write(BACKGROUND_paragraph)
+
     with col2: 
         tile = col2.container(height=350)
         tile.write("#### *My Seasonal Model*")
-        tile.write(MY_MODEL_paragraph,
-                       text_align="left",
-                       max_lines=10,
-                       max_chars=None,
-                       expanded=False)
+        tile.write(MY_MODEL_paragraph)
+
     with col3:
         tile = col3.container(height=350)
         tile.write("#### *Areas for Enhancement*")
-        tile.write(AREAS_FOR_ENHANCEMENT_paragraph,
-                       text_align="left",
-                       max_lines=10,
-                       max_chars=None,
-                       expanded=False)
+        tile.write(AREAS_FOR_ENHANCEMENT_paragraph)
+
 
     image_path = "images/plastic_emissions_model.png"  
     new_size = (600, 400) 
     resized_image = resize_image(image_path, new_size)
-    st_normal().write("#### The Ocean Cleanup's Model for calculating River Emission Rates", align="center")
+    st_normal().write("#### The Ocean Cleanup's Model for calculating River Emission Rates")
     st_normal().image(resized_image, caption = "Source: The Ocean Cleanup's Model, from Meijer et al. (2021). Link here: https://www.science.org/doi/10.1126/sciadv.aaz5803", use_container_width=True)
     
 with tab2:
@@ -130,9 +121,6 @@ with tab2:
         return df
 
     gdf = load_data()
-
-    gdf['geometry'] = gdf['geometry'].astype(str)
-
 
     # ---- 3. Toggle and Slider ----
 
@@ -245,15 +233,20 @@ with tab4:
 
     # ---- 8. Dataframe ----
     # Create a dataframe of the top 10 rivers in Southeast Asia, that the users can interact with
-    st.dataframe(df_month, use_container_width=True)    
+
+    # Deleting the geometry column for display as I already have lon and lat columns
+    df_month_display = df_month.copy()
+    df_month_display = df_month_display.drop(columns='geometry')
+
+    st.dataframe(df_month_display, use_container_width=True)
 
 
 
     # ---- 9. Data Sources ----
     st.write("### Data Sources")
-    st.write("This is the underlying data for the top 10 rivers in Southeast Asia, ranked by The Ocean Cleanup. " \
-    "\n\nThe monthly pollution levels are produced by my own modelling of the data, which is based on the average changing rainfall levels across SE Asia throughout the year. " )
-    st.write("The average yearly plastic pollution data is sourced from The Ocean Cleanup's [Global River Plastic Pollution Ranking](https://theoceancleanup.com/rivers/). "
-    "\n\nThe monthly rainfall data is sourced from [World Bank Climate Data](https://climateknowledgeportal.worldbank.org/download-data). " \
-    "\n\nThe river locations are sourced from [OpenStreetMap](https://www.openstreetmap.org/). " \
+    st.write("This is the underlying data for the top 10 rivers in Southeast Asia, ranked by The Ocean Cleanup. " 
+    "\n\nThe monthly pollution levels are produced by my own modelling of the data, which is based on the average changing rainfall levels across SE Asia throughout the year." )
+    st.write("The average yearly plastic pollution data is sourced from The Ocean Cleanup's [Global River Plastic Pollution Ranking](https://theoceancleanup.com/rivers/)."
+    "\n\nThe monthly rainfall data is sourced from [World Bank Climate Data](https://climateknowledgeportal.worldbank.org/download-data). " 
+    "\n\nThe river locations are sourced from [OpenStreetMap](https://www.openstreetmap.org/). " 
     "\n\nFor more information on the data sources, please refer to the [GitHub repository](https://github.com/lemrob/river_plastic_pollution).")
