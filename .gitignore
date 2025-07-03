@@ -4,7 +4,7 @@ __pycache__/
 data/*
 !data/README_data.md
 *.pkl
-!monthly_pollution_gdf.pkl
+!data/monthly_pollution_gdf.pkl
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
