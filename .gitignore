@@ -3,7 +3,6 @@ __pycache__/
 .DS_Store
 data/*
 !data/README_data.md
-*.pkl
 !data/monthly_pollution_gdf.pkl
 
 # Byte-compiled / optimized / DLL files
