@@ -6,6 +6,8 @@ This folder contains local datasets needed to run the project.
 
 This folder is **excluded from version control** via `.gitignore`, so you need to manually upload the data files to run the code!
 
+**Note:** Processed data files (*.pkl) that are required as inputs for the Streamlit app are included for convenience. To fully reproduce or update these files, please run the preprocessing notebooks in the prescribed order.
+
 
 # Data Folder Instructions
 

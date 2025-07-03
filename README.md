@@ -94,5 +94,7 @@ To run the project locally:
 
 4. You need to input the data sources to run the code - Please check the data/README_data.md file!
 
+    **Note:** Processed data files (*.pkl) that are required as inputs for the Streamlit app are included for convenience. To fully reproduce or update these files, please run the preprocessing notebooks in the prescribed order.
+
 
 
