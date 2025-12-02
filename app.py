@@ -69,7 +69,7 @@ with tab1:
     st.write("*Toggle through the tabs above to explore the model results! Data sources can be found in the final tab, along with the underlying data used for the model.*")
 
     # Titles and Introduction
-    st.title(":ocean: *Top 10 Plastic Polluting Rivers in South East Asia: Seasonality Model* :recycle:")
+    st.title(":ocean: *Top 10 Plastic Polluting Rivers in South East Asia: Seasonality Model*")
     st.write("**Aim**: To Extend Ocean Cleanup's model, by adding **seasonality** to The Ocean Cleanup's Top Polluting Rivers Model")
     st.write("**Purpose:** To introduce a simple prediction of how rainfall can influence pollution rates from rivers into the Ocean.")
 
@@ -99,9 +99,8 @@ with tab1:
     
 with tab2:
     st.title(":world_map: Seasonal River Pollution in SE Asia")
-    st.subheader("Visualizing the seasonal pollution levels of the top 10 rivers in Southeast Asia, ranked by The Ocean Cleanup. ")
-    st.write("Use the slider to select a month and toggle between raw and normalized pollution data.")
-    st.write("The Raw data makes for a more accurate representation of the pollution levels across time, while the Normalized data allows for a more intuitive comparison of pollution levels between rivers.")
+    # st.write("Switch to the Normalized data to view a more intuitive comparison of pollution levels between rivers.")
+    st.write("Note: The baseline pollution estimates are based on the original Meijer et al. dataset. The Ocean Cleanup’s online map uses updated sources, so numbers may differ")
 
 
     # ---- 2. Load Data  ----
