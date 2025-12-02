@@ -23,7 +23,7 @@ Explore monthly plastic pollution distributions, switch between interactive map 
 
 
 ## 🔬 Model Summary
-- Annual Plastic Pollution (kg) is taken from The Ocean Cleanup's model
+- Annual Plastic Pollution is taken from The Ocean Cleanup's model
 - Rainfall Data is an external factor to the model, taken from WorldClim2
 - Applies rainfall proportions to estimate **monthly plastic emission profiles**
 - Project focus is on **South East Asia** rivers

@@ -100,7 +100,7 @@ with tab1:
 with tab2:
     st.title(":world_map: Seasonal River Pollution in SE Asia")
     # st.write("Switch to the Normalized data to view a more intuitive comparison of pollution levels between rivers.")
-    st.write("Note: The baseline pollution estimates are based on the original Meijer et al. dataset. The Ocean Cleanup’s online map uses updated sources, so numbers may differ")
+    st.write("Note: The baseline pollution estimates are based on the original Meijer et al. dataset. The Ocean Cleanup’s online map uses updated sources, so numbers may differ.")
 
 
     # ---- 2. Load Data  ----
@@ -152,7 +152,7 @@ with tab2:
 
     colormap = linear.YlOrRd_09.scale(min_pollution, max_pollution)
     colormap.text_color = 'white'
-    colormap.caption = 'Pollution Level'
+    colormap.caption = 'Pollution Level (Tonnes)'
 
 
     # Slider for month (you can customize with real month names if needed)
