@@ -99,7 +99,7 @@ with tab1:
     
 with tab2:
     st.title(":world_map: Seasonal River Pollution in SE Asia: Top 10 Polluters")
-    # st.write("Switch to the Normalized data to view a more intuitive comparison of pollution levels between rivers.")
+    st.write("Switch to the Normalized data to view a more intuitive comparison of pollution levels between rivers.")
     st.write("Note: The baseline pollution estimates are based on the original Meijer et al. dataset. The Ocean Cleanup’s online map uses updated sources, so numbers may differ.")
 
 
