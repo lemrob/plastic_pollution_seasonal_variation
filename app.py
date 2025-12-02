@@ -98,7 +98,7 @@ with tab1:
     st_normal().image(resized_image, caption = "Source: The Ocean Cleanup's Model, from Meijer et al. (2021). Link here: https://www.science.org/doi/10.1126/sciadv.aaz5803", use_container_width=True)
     
 with tab2:
-    st.title(":world_map: Seasonal River Pollution in SE Asia")
+    st.title(":world_map: Seasonal River Pollution in SE Asia: Top 10 Polluters")
     # st.write("Switch to the Normalized data to view a more intuitive comparison of pollution levels between rivers.")
     st.write("Note: The baseline pollution estimates are based on the original Meijer et al. dataset. The Ocean Cleanup’s online map uses updated sources, so numbers may differ.")
 
