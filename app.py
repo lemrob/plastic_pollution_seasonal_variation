@@ -43,7 +43,7 @@ with tab1:
     This **baseline model** introduces **seasonality** into the paradigm, by considering **rainfall**.
     \n\n This influences pollution rates as shown in the first part of the model (below) – through **Mobilization**.
     \n\n Focuses on the top 10 polluters in **South East Asia** – a high polluting area with dramatic seasonal shifts in rainfall.
-    \n\n Aggregates historical rainfall patterns to predict the **average monthly** pollution levels of each river.
+    \n\n Aggregates historical rainfall patterns to predict the **average monthly** pollution levels of each river, measured in Tonnes of plastic.
     """
 
     AREAS_FOR_ENHANCEMENT_paragraph = """
