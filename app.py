@@ -99,10 +99,8 @@ with tab1:
     
 with tab2:
     st.title(":world_map: Seasonal River Pollution in SE Asia")
-    st.subheader("Visualizing the seasonal pollution levels of the top 10 rivers in Southeast Asia, ranked by The Ocean Cleanup. " \
-    "The seasonality is informed by my own modelling of the data, which is based on the average changing rainfall levels across SE Asia throughout the year.")
+    st.subheader("Visualizing the seasonal pollution levels of the top 10 rivers in Southeast Asia, ranked by The Ocean Cleanup. ")
     st.write("Use the slider to select a month and toggle between raw and normalized pollution data.")
-    st.write("The map shows the pollution levels of each river for the selected month, with circle markers sized by the pollution volume and colored by the pollution level.")
     st.write("The Raw data makes for a more accurate representation of the pollution levels across time, while the Normalized data allows for a more intuitive comparison of pollution levels between rivers.")
 
 
